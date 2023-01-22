@@ -1,0 +1,42 @@
+
+<div class="container">
+    <p>MODOFICAR EQUIPO</p>
+    <div class="row">
+        <div class="col-sm-6">
+            <form>
+                <div class="mb-3">
+                    <label class="form-label">Nombre de Equipo</label>
+                    <input [(ngModel)]="equipo.nombre" type="text" class="form-control" name="nombre">
+                </div>
+                
+                <div class="mb-3">
+                    <label class="form-label">localizacion</label>
+                    <input [(ngModel)]="equipo.localizacion" type="text" class="form-control" name="localizacion">
+                </div>
+                
+                <button (click)="modificar()" class="btn btn-primary">Guardar</button>
+            </form>
+        </div>
+
+
+
+
+        <div class="col-sm-6">
+            <form>
+                
+                
+                <div class="mb-3">
+                    <label class="form-label">{{equipo.nombre}}</label>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">{{equipo.localizacion}}</label>
+                </div>
+                
+            </form>
+        </div>
+
+    </div>
+    
+</div>
+

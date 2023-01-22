@@ -1,0 +1,8 @@
+npm init -y
+npm install nodemon
+ponemos dev en el json
+npm run dev
+npm install express mysql
+con advanced rest client se pueden probar peticiones a api node
+modifico en packagejson de angular para el proxy y la parte de serv en el angular.json
+primero ejecutas api con nodemon y despues angular
