@@ -3,4 +3,4 @@ module.exports = {
   USER: "root",
   PASSWORD: "password",
   DB: "testdb"
-};
+};//campos para conectar

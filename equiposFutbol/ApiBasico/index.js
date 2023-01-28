@@ -1,21 +1,21 @@
 require('./config/conexion');
 const express = require('express')
-const port = (process.env.port || 3000)
+const port = ( 3000)
 
 // express
 const app = express()
 
-//admitir
+
 app.use(express.json())
 
-//configurar
+//configurar pongo el puerto
 app.set('port',port)
 
-//rutas
-app.use('/api', require('./rutas'))
+//rutas basicas
+app.use('/api', require('./rutas'))//acceder a localhost:3000/api
 
 
-//inicializar express
+//inicializar express y escuchan en el puerto
 app.listen(app.get('port'),(error)=>{
     if(error)
     {console.log('error al iniciar el servidor: '+error)}

@@ -6,7 +6,7 @@ import { AddTutorialComponent } from './components/add-tutorial/add-tutorial.com
 
 const routes: Routes = [
   { path: '', redirectTo: 'tutorials', pathMatch: 'full' },
-  { path: 'tutorials', component: TutorialsListComponent },
+  { path: 'tutorials', component: TutorialsListComponent },//la ruta y al componente al que dirige, pasando el id para editar
   { path: 'tutorials/:id', component: TutorialDetailsComponent },
   { path: 'add', component: AddTutorialComponent }
 ];

@@ -17,25 +17,25 @@ export class EquipoService {
   }
 
 
-  //get un Equipo
+  //get un Equipo con el id
   getUnEquipo(id:string){
     return this.http.get(this.url+'/'+id);
   }
 
 
-  //agregar equipo
+  //agregar equipo pasando el equipo de objeto
   addEquipo(equipo:Equipo)
   {
     return this.http.post(this.url, equipo);
   }
 
 
-  //eliminar
+  //eliminar  con el id
   deleteEquipo(id:string){
     return this.http.delete(this.url+'/'+id);
   }
 
-  //modificar equipo
+  //modificar equipo con el id y pasando el equipo en objeto
   editEquipo(id:string, equipo:Equipo){
     return this.http.put(this.url+'/'+id, equipo);
   }
@@ -43,7 +43,7 @@ export class EquipoService {
 }
 
 
-export interface Equipo{
+export interface Equipo{//interfaz para el equipo y sus atributos
   id_equipo?:string;
   nombre?:string;
   localizacion?:string;

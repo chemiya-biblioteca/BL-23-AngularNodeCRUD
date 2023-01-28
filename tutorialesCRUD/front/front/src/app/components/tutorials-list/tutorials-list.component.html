@@ -6,12 +6,12 @@
         class="form-control"
         placeholder="Search by title"
         [(ngModel)]="title"
-      />
+      /><!--enlazo con la variable par abuscar el titulo-->
       <div class="input-group-append">
         <button
           class="btn btn-outline-secondary"
           (click)="searchTitle()"
-        >
+        ><!--al click llamo al evento-->
           Search
         </button>
       </div>
@@ -25,19 +25,19 @@
         *ngFor="let tutorial of tutorials; let i = index"
         [class.active]="i == currentIndex"
         (click)="setActiveTutorial(tutorial, i)"
-      >
+      ><!--recorro los arrays con el indice, al boton le pongo como activo, y el que sea del current index lo pongo activo-->
         {{ tutorial.title }}
-      </li>
+      </li><!--enlazo con el titulo-->
     </ul>
 
     <button class="m-3 btn btn-sm btn-danger" (click)="removeAllTutorials()">
       Remove All
-    </button>
+    </button><!--elimino todos-->
   </div>
-  <div class="col-md-6">
+  <div class="col-md-6"><!--llamo al componente para mostrar los detalles-->
     <app-tutorial-details
       [viewMode]="true"
       [currentTutorial]="currentTutorial"
-    ></app-tutorial-details>
+    ></app-tutorial-details><!--le paso propiedades al componente-->
   </div>
 </div>

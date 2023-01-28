@@ -6,6 +6,6 @@ var connection = mysql.createPool({
   user: dbConfig.USER,
   password: dbConfig.PASSWORD,
   database: dbConfig.DB
-});
+});//conecto con la base y exporto los datos
 
 module.exports = connection;

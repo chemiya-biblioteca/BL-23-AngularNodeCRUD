@@ -1,5 +1,5 @@
-<div *ngIf="viewMode; else editable">
-  <div *ngIf="currentTutorial.id">
+<div *ngIf="viewMode; else editable"><!--si estamos en la vista previa o para editar-->
+  <div *ngIf="currentTutorial.id"><!--si tenemos un id seleccionado-->
     <h4>Tutorial</h4>
     <div>
       <label><strong>Title:</strong></label> {{ currentTutorial.title }}
@@ -11,24 +11,24 @@
     <div>
       <label><strong>Status:</strong></label>
       {{ currentTutorial.published ? "Published" : "Pending" }}
-    </div>
+    </div><!--enlazo con los campos del tutorial, variable boolean dependiendo de su valor-->
 
     <a
-      class="badge badge-warning"
+      class=""
       routerLink="/tutorials/{{ currentTutorial.id }}"
-    >
+    ><!--navego a la ruta para editarlo-->
       Edit
     </a>
   </div>
 
-  <div *ngIf="!currentTutorial">
+  <div *ngIf="!currentTutorial"><!--si no hay ninguno seleccionado-->
     <br />
     <p>Please click on a Tutorial...</p>
   </div>
 </div>
 
-<ng-template #editable>
-  <div *ngIf="currentTutorial.id" class="edit-form">
+<ng-template #editable><!--si estamos para editar-->
+  <div *ngIf="currentTutorial.id" class="edit-form"><!--si tenemos un di-->
     <h4>Tutorial</h4>
     <form>
       <div class="form-group">
@@ -39,7 +39,7 @@
           id="title"
           [(ngModel)]="currentTutorial.title"
           name="title"
-        />
+        /><!--enlazamos con el campo del tutorial-->
       </div>
       <div class="form-group">
         <label for="description">Description</label>
@@ -52,42 +52,42 @@
         />
       </div>
 
-      <div class="form-group">
+      <div class="form-group"><!--enlazamos con la variable boolean-->
         <label><strong>Status:</strong></label>
         {{ currentTutorial.published ? "Published" : "Pending" }}
       </div>
     </form>
 
     <button
-      class="badge badge-primary mr-2"
+      class="mr-2"
       *ngIf="currentTutorial.published"
       (click)="updatePublished(false)"
-    >
+    ><!--llamo al evento para actualizar-->
       UnPublish
     </button>
     <button
       *ngIf="!currentTutorial.published"
-      class="badge badge-primary mr-2"
+      class="mr-2"
       (click)="updatePublished(true)"
-    >
+    ><!--llamo al evento para actualizar-->
       Publish
     </button>
 
-    <button class="badge badge-danger mr-2" (click)="deleteTutorial()">
+    <button class="mr-2" (click)="deleteTutorial()">
       Delete
-    </button>
+    </button><!--llamo al evento para borrar-->
 
     <button
       type="submit"
-      class="badge badge-success mb-2"
+      class="mb-2"
       (click)="updateTutorial()"
     >
       Update
-    </button>
-    <p>{{ message }}</p>
+    </button><!--llamo al evento para actualizar-->
+    <p>{{ message }}</p><!--enlazo con el campo del mensaje-->
   </div>
 
-  <div *ngIf="!currentTutorial.id">
+  <div *ngIf="!currentTutorial.id"><!--si no tenemos id-->
     <br />
     <p>Cannot access this Tutorial...</p>
   </div>

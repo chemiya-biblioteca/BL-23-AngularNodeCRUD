@@ -10,13 +10,13 @@ import { Tutorial } from 'src/app/models/tutorial.model';
 })
 export class TutorialDetailsComponent implements OnInit {
 
-  @Input() viewMode = false;
+  @Input() viewMode = false;//reicbo entradas
 
   @Input() currentTutorial: Tutorial = {
     title: '',
     description: '',
     published: false
-  };
+  };//los datos del tutorial
   
   message = '';
 
@@ -28,15 +28,15 @@ export class TutorialDetailsComponent implements OnInit {
   ngOnInit(): void {
     if (!this.viewMode) {
       this.message = '';
-      this.getTutorial(this.route.snapshot.params["id"]);
+      this.getTutorial(this.route.snapshot.params["id"]);//cojo el id de la ruta
     }
   }
 
   getTutorial(id: string): void {
-    this.tutorialService.get(id)
+    this.tutorialService.get(id)//busco el tutorial en labase de datos
       .subscribe({
         next: (data) => {
-          this.currentTutorial = data;
+          this.currentTutorial = data;//lo guardo en la variable
           console.log(data);
         },
         error: (e) => console.error(e)
@@ -48,15 +48,15 @@ export class TutorialDetailsComponent implements OnInit {
       title: this.currentTutorial.title,
       description: this.currentTutorial.description,
       published: status
-    };
+    };//pongo datos del tutorial y nuevo published
 
     this.message = '';
 
-    this.tutorialService.update(this.currentTutorial.id, data)
+    this.tutorialService.update(this.currentTutorial.id, data)//llamo para actualizar
       .subscribe({
         next: (res) => {
           console.log(res);
-          this.currentTutorial.published = status;
+          this.currentTutorial.published = status;//guardo el campo y pongo mensaje
           this.message = res.message ? res.message : 'The status was updated successfully!';
         },
         error: (e) => console.error(e)
@@ -64,19 +64,19 @@ export class TutorialDetailsComponent implements OnInit {
   }
 
   updateTutorial(): void {
-    this.message = '';
+    this.message = '';//llamo al servicio para que lo actualice
 
     this.tutorialService.update(this.currentTutorial.id, this.currentTutorial)
       .subscribe({
         next: (res) => {
-          console.log(res);
+          console.log(res);//pongo mensaje correcto
           this.message = res.message ? res.message : 'This tutorial was updated successfully!';
         },
         error: (e) => console.error(e)
       });
   }
 
-  deleteTutorial(): void {
+  deleteTutorial(): void {//borro por el id y navego a la principal
     this.tutorialService.delete(this.currentTutorial.id)
       .subscribe({
         next: (res) => {

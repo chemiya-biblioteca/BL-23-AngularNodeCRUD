@@ -11,7 +11,7 @@
           [(ngModel)]="tutorial.title"
           name="title"
         />
-      </div>
+      </div><!--enlazo con los campos del tutorial-->
 
       <div class="form-group">
         <label for="description">Description</label>
@@ -25,9 +25,9 @@
       </div>
 
       <button (click)="saveTutorial()" class="btn btn-success">Submit</button>
-    </div>
+    </div><!--llamo al evento-->
 
-    <div *ngIf="submitted">
+    <div *ngIf="submitted"><!--segun variable del envio y evento para crear otro-->
       <h4>Tutorial was submitted successfully!</h4>
       <button class="btn btn-success" (click)="newTutorial()">Add</button>
     </div>

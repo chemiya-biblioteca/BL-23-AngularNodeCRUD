@@ -16,12 +16,12 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let equipo of ListarEquipo">
+          <tr *ngFor="let equipo of ListarEquipo"><!--recorro el array y por cada uno muestro los atributos -->
             <th>{{equipo.id_equipo}}</th>
             <td>{{equipo.nombre}}</td>
             <td>{{equipo.localizacion}}</td>
             
-            <td>
+            <td><!--boton para modificar y paso el id y para borrar tambien paso el id -->
                 <button (click)="modificar(equipo.id_equipo)" type="button" class="btn btn-primary">Editar</button>
             </td>
             <td>

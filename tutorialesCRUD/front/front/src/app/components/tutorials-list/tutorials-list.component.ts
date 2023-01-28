@@ -9,22 +9,22 @@ import { TutorialService } from 'src/app/services/tutorial.service';
 })
 export class TutorialsListComponent implements OnInit {
 
-  tutorials?: Tutorial[];
-  currentTutorial: Tutorial = {};
+  tutorials?: Tutorial[];//aray con los tutoriales
+  currentTutorial: Tutorial = {};//tutorial concreto
   currentIndex = -1;
-  title = '';
+  title = '';//para la busqueda de un titulo
 
   constructor(private tutorialService: TutorialService) { }
 
   ngOnInit(): void {
-    this.retrieveTutorials();
+    this.retrieveTutorials();//busco los tutoriales
   }
 
   retrieveTutorials(): void {
-    this.tutorialService.getAll()
+    this.tutorialService.getAll()//busco todos
       .subscribe({
         next: (data) => {
-          this.tutorials = data;
+          this.tutorials = data;//los guardo en el array
           console.log(data);
         },
         error: (e) => console.error(e)
@@ -32,18 +32,18 @@ export class TutorialsListComponent implements OnInit {
   }
 
   refreshList(): void {
-    this.retrieveTutorials();
+    this.retrieveTutorials();//Busco todos y limpio campos
     this.currentTutorial = {};
     this.currentIndex = -1;
   }
 
   setActiveTutorial(tutorial: Tutorial, index: number): void {
-    this.currentTutorial = tutorial;
+    this.currentTutorial = tutorial;//actualizo campos
     this.currentIndex = index;
   }
 
   removeAllTutorials(): void {
-    this.tutorialService.deleteAll()
+    this.tutorialService.deleteAll()//llamo para que borre todos y actualizo lista
       .subscribe({
         next: (res) => {
           console.log(res);
@@ -54,10 +54,10 @@ export class TutorialsListComponent implements OnInit {
   }
 
   searchTitle(): void {
-    this.currentTutorial = {};
+    this.currentTutorial = {};//limpio los campos 
     this.currentIndex = -1;
 
-    this.tutorialService.findByTitle(this.title)
+    this.tutorialService.findByTitle(this.title)//llamo para que busque y los guardo en el array
       .subscribe({
         next: (data) => {
           this.tutorials = data;

@@ -13,18 +13,18 @@ export class AddTutorialComponent {
     title: '',
     description: '',
     published: false
-  };
+  };//creo tutorial vacio
   submitted = false;
 
   constructor(private tutorialService: TutorialService) { }
 
   saveTutorial(): void {
-    const data = {
+    const data = {//cojo los campos
       title: this.tutorial.title,
       description: this.tutorial.description
     };
 
-    this.tutorialService.create(data)
+    this.tutorialService.create(data)//lo llamo para que lo guarde
       .subscribe({
         next: (res) => {
           console.log(res);
@@ -40,7 +40,7 @@ export class AddTutorialComponent {
       title: '',
       description: '',
       published: false
-    };
+    };//reinicio los campos
   }
 
 }

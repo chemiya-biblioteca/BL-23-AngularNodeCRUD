@@ -14,17 +14,17 @@ export class ModificarComponent implements OnInit {
     id_equipo:'',
     nombre:'',
     localizacion:''
-  };
+  };//equipo vacio
 
   constructor(private EquipoService:EquipoService,
               private router:Router,
               private activeRoute:ActivatedRoute) { }
 
   ngOnInit(): void {
-    const id_entrada = <string>this.activeRoute.snapshot.params.id;
+    const id_entrada = <string>this.activeRoute.snapshot.params.id;//busco el id en la ruta
     console.log('id de entrada: '+id_entrada);
 
-    if(id_entrada){
+    if(id_entrada){//le busco en la base de datos
       this.EquipoService.getUnEquipo(id_entrada).subscribe(
         res=>{
           this.equipo = res[0];
@@ -37,7 +37,7 @@ export class ModificarComponent implements OnInit {
 
   modificar()
   {
-
+//guardo el nuevo equipo con sus nuevos datos
     this.EquipoService.editEquipo(this.equipo.id_equipo, this.equipo).subscribe(
       res=>{
         console.log(res);
@@ -45,7 +45,7 @@ export class ModificarComponent implements OnInit {
       err=>console.log(err)
     );
 
-    this.router.navigate(['/inicio']);
+    this.router.navigate(['/inicio']);//navego a ala ruta principal
   }
 
 }

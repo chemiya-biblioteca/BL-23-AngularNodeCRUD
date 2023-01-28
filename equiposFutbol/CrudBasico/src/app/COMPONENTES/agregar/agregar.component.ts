@@ -12,7 +12,7 @@ export class AgregarComponent implements OnInit {
     id_equipo:'',
     nombre:'',
     localizacion:''
-  };
+  };//creo un equipo con los campos vacios
 
   constructor(private EquipoService:EquipoService, private router:Router) { }
 
@@ -20,10 +20,10 @@ export class AgregarComponent implements OnInit {
   }
 
   agregar(){
-    delete this.equipo.id_equipo;
+    //delete this.equipo.id_equipo;
 
-    this.EquipoService.addEquipo(this.equipo).subscribe();
-    this.router.navigate(['/inicio']);
+    this.EquipoService.addEquipo(this.equipo).subscribe();//llamo al servicio para que lo cree
+    this.router.navigate(['/inicio']);//navego a la pantalla principal
   }
 
 }

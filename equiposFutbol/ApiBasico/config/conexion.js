@@ -6,7 +6,7 @@ const conexion = mysql.createConnection({
     password: 'password',
     port:'3306',
     database: 'db_basico'
-});
+});//conecto con la base de datos
 
 conexion.connect((err)=>{
     if(err){
@@ -16,4 +16,4 @@ conexion.connect((err)=>{
     {console.log(' la base de datos se conecto!!!')}
 });
 
-module.exports=conexion
+module.exports=conexion//exporto la conexion

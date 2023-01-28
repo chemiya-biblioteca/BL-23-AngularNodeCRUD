@@ -10,12 +10,12 @@ import { Router} from '@angular/router';
 export class InicioComponent implements OnInit {
 
   //varibale
-  ListarEquipo: Equipo[];
+  ListarEquipo: Equipo[];//array para guardar los equipos
 
   constructor(private EquipoService:EquipoService, private router:Router) { }
 
   ngOnInit(): void {
-    this.listarEquipo();
+    this.listarEquipo();//busco los equipos
   }
 
 
@@ -24,7 +24,7 @@ export class InicioComponent implements OnInit {
     this.EquipoService.getEquipos().subscribe(
       res=>{
         console.log(res);
-        this.ListarEquipo=<any>res;
+        this.ListarEquipo=<any>res;//traigo los equipos y los guardo en el array 
       },
       err => console.log(err)
     );
